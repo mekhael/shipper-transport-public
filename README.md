@@ -1,38 +1,27 @@
 # E2E Playwright Template (TypeScript + dotenv)
 
-A minimal, ready-to-run Playwright setup that pulls secrets from `.env` and sets `baseURL` from env.
+A minimal, ready-to-run Playwright setup that reads secrets from `.env` and sets `baseURL` from env.
 
 ## Prereqs
-- Node.js 18+ (Run `node -v` to verify)
+- Node.js 18+ (`node -v`)
 
 ## 1) Steps after cloning the repo
 ```bash
-# 1) Install deps & Playwright browsers
-npm ci
-npx playwright install --with-deps
+# clone
+git clone https://github.com/mekhael/shipper-transport-public.git
+cd shipper-transport-public
 
-# 2) Create .env (or set env inline; see below)
+# create local env (never commit .env)
 cat > .env <<'EOF'
-E2E_EMAIL=you@example.com
-E2E_PASSWORD=yourStrongPassword123
+E2E_EMAIL=your.stage.user@example.com
+E2E_PASSWORD=yourStagePassword
 BASE_URL=https://stage.4shipper.transportly.eu
 EOF
 
-```
-
-
-## 2) Configure env
-The project ships with **.env** already populated (your local secrets) and **.env.example** as a safe template.
-
-To change credentials or URL, edit `.env`:
-```ini
-BASE_URL=https://stage.4shipper.transportly.eu
-E2E_EMAIL=you@example.com
-E2E_PASSWORD=changeMe
-```
-
-> **Security:** `.env` is in `.gitignore` so secrets won't be committed by accident.
-
+# install + run
+npm ci
+npx playwright install --with-deps
+npx playwright test
 
 ## 3) See results
 After a run:
@@ -52,9 +41,8 @@ After a run:
 - Input fields accept excessively long text or invalid values without restriction.  
 - No max length or format validation is enforced (e.g., names, company names, phone numbers).
 
----
 
-### ▶ Run Tests
+###  Run Tests
 Install dependencies and run Playwright tests in UI mode:
 
 ```bash
