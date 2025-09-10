@@ -12,3 +12,4 @@ blob-report/
 .env
 .env.*
 !.env.example
+clean-check/
