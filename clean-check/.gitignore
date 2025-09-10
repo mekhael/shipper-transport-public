@@ -1,0 +1,14 @@
+# dependencies / reports
+node_modules/
+playwright-report/
+test-results/
+blob-report/
+/playwright/.cache/
+
+# dotenv files (keep only the template in git)
+.env
+.env.*
+!.env.example
+.env
+.env.*
+!.env.example
